@@ -8,7 +8,7 @@ import 'package:responsive_screen/responsive_screen.dart';
 import 'package:expenses_tracker/constants.dart';
 
 class HomeScreen extends StatefulWidget {
-  static String screenId = '/homeScreen';
+  static String id = '/homeScreen';
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               width: double.infinity,
               height: double.infinity,
-              decoration: backgroundColorGradient,
+              decoration: kBackgroundColorGradient,
               child: Column(
                 children: <Widget>[
                   Expanded(

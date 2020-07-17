@@ -34,6 +34,30 @@ class DatabaseHelper extends ChangeNotifier {
   List<IncomeExpense> getListOfIncomesExpenses() =>
       List<IncomeExpense>.from(_listOfIncomesExpenses.reversed);
 
+  List<IncomeExpense> getListOfSelectedCategory(Category category) {
+    List<IncomeExpense> _listOfSelectedCategory = [];
+
+    for (IncomeExpense incomeExpense in _listOfIncomesExpenses) {
+      if (incomeExpense.getCategory() == category) {
+        _listOfSelectedCategory.add(incomeExpense);
+      }
+    }
+
+    return _listOfSelectedCategory;
+  }
+
+  int getNumberOfSelectedCategory(Category category) {
+    return getListOfSelectedCategory(category).length;
+  }
+
+  double getAmountOfCategory(Category category) {
+    double _amount = 0;
+    for (IncomeExpense incomeExpense in getListOfSelectedCategory(category)) {
+      _amount += incomeExpense.getAmount();
+    }
+    return _amount;
+  }
+
   int getNumberOfIncomesExpenses() => _listOfIncomesExpenses.length;
 
   double getBalance() => _balance;

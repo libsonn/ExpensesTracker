@@ -63,7 +63,7 @@ class _NewIncomeExpenseScreenState extends State<NewIncomeExpenseScreen> {
         child: Container(
           width: screenWidth(100),
           height: screenHeight(100),
-          decoration: backgroundColorGradient,
+          decoration: kBackgroundColorGradient,
           child: ListView(
             shrinkWrap: true,
             controller: _controller,

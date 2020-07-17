@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 
 final dateFormat = DateFormat('dd-MM-yyyy');
 
-const backgroundColorGradient = BoxDecoration(
+const kBackgroundColorGradient = BoxDecoration(
   gradient: LinearGradient(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,

@@ -1,4 +1,6 @@
 import 'package:expenses_tracker/constants.dart';
+import 'package:expenses_tracker/screens/categories_screen.dart';
+import 'package:expenses_tracker/screens/charts_screen.dart';
 import 'package:expenses_tracker/screens/home_screen.dart';
 import 'package:expenses_tracker/screens/new_income_expense_screen.dart';
 import 'package:expenses_tracker/screens/settings_screen.dart';
@@ -21,7 +23,6 @@ class _MainScreenState extends State<MainScreen> {
 
   bool isHomeScreenSelected = true;
   bool isCategoryScreenSelected = false;
-  bool isNewIncomeExpenseScreenSelected = false;
   bool isChartScreenSelected = false;
   bool isSettingsScreenSelected = false;
 
@@ -30,35 +31,24 @@ class _MainScreenState extends State<MainScreen> {
       case 0:
         isHomeScreenSelected = true;
         isCategoryScreenSelected = false;
-        isNewIncomeExpenseScreenSelected = false;
         isChartScreenSelected = false;
         isSettingsScreenSelected = false;
         break;
       case 1:
         isHomeScreenSelected = false;
         isCategoryScreenSelected = true;
-        isNewIncomeExpenseScreenSelected = false;
         isChartScreenSelected = false;
         isSettingsScreenSelected = false;
         break;
       case 2:
         isHomeScreenSelected = false;
         isCategoryScreenSelected = false;
-        isNewIncomeExpenseScreenSelected = true;
-        isChartScreenSelected = false;
+        isChartScreenSelected = true;
         isSettingsScreenSelected = false;
         break;
       case 3:
         isHomeScreenSelected = false;
         isCategoryScreenSelected = false;
-        isNewIncomeExpenseScreenSelected = false;
-        isChartScreenSelected = true;
-        isSettingsScreenSelected = false;
-        break;
-      case 4:
-        isHomeScreenSelected = false;
-        isCategoryScreenSelected = false;
-        isNewIncomeExpenseScreenSelected = false;
         isChartScreenSelected = false;
         isSettingsScreenSelected = true;
         break;
@@ -77,11 +67,18 @@ class _MainScreenState extends State<MainScreen> {
           children: <Widget>[
             Expanded(
               child: Container(
-                decoration: backgroundColorGradient,
+                decoration: kBackgroundColorGradient,
                 child: PageView(
+                  onPageChanged: (int pageIndex) {
+                    setState(() {
+                      switchSelection(pageIndex);
+                    });
+                  },
                   controller: _pageController,
                   children: <Widget>[
                     HomeScreen(),
+                    CategoriesScreen(),
+                    ChartsScreen(),
                     SettingsScreen(),
                   ],
                 ),
@@ -119,6 +116,9 @@ class _MainScreenState extends State<MainScreen> {
                         onTap: () {
                           setState(() {
                             switchSelection(1);
+                            _pageController.animateToPage(1,
+                                duration: Duration(seconds: 1),
+                                curve: Curves.easeInExpo);
                           });
                         },
                         isSelected: isCategoryScreenSelected,
@@ -182,7 +182,10 @@ class _MainScreenState extends State<MainScreen> {
                         text: 'Charts',
                         onTap: () {
                           setState(() {
-                            switchSelection(3);
+                            switchSelection(2);
+                            _pageController.animateToPage(2,
+                                duration: Duration(seconds: 1),
+                                curve: Curves.easeInExpo);
                           });
                         },
                         isSelected: isChartScreenSelected,
@@ -192,8 +195,8 @@ class _MainScreenState extends State<MainScreen> {
                         text: 'Settings',
                         onTap: () {
                           setState(() {
-                            switchSelection(4);
-                            _pageController.animateToPage(1,
+                            switchSelection(3);
+                            _pageController.animateToPage(3,
                                 duration: Duration(seconds: 1),
                                 curve: Curves.easeInExpo);
                           });

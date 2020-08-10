@@ -4,7 +4,7 @@ import 'package:expenses_tracker/screens/charts_screen.dart';
 import 'package:expenses_tracker/screens/home_screen.dart';
 import 'package:expenses_tracker/screens/main_screen.dart';
 import 'package:expenses_tracker/screens/new_income_expense_screen.dart';
-import 'package:expenses_tracker/screens/settings_screen.dart';
+import 'package:expenses_tracker/screens/about_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -51,7 +51,7 @@ class ExpensesTrackerApp extends StatelessWidget {
           CategoriesScreen.id: (context) => CategoriesScreen(),
           NewIncomeExpenseScreen.id: (context) => NewIncomeExpenseScreen(),
           ChartsScreen.id: (context) => ChartsScreen(),
-          SettingsScreen.id: (context) => SettingsScreen(),
+          AboutScreen.id: (context) => AboutScreen(),
         },
       ),
     );

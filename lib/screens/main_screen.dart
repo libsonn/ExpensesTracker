@@ -3,7 +3,7 @@ import 'package:expenses_tracker/screens/categories_screen.dart';
 import 'package:expenses_tracker/screens/charts_screen.dart';
 import 'package:expenses_tracker/screens/home_screen.dart';
 import 'package:expenses_tracker/screens/new_income_expense_screen.dart';
-import 'package:expenses_tracker/screens/settings_screen.dart';
+import 'package:expenses_tracker/screens/about_screen.dart';
 import 'package:expenses_tracker/widgets/page_selector_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,7 +24,7 @@ class _MainScreenState extends State<MainScreen> {
   bool isHomeScreenSelected = true;
   bool isCategoryScreenSelected = false;
   bool isChartScreenSelected = false;
-  bool isSettingsScreenSelected = false;
+  bool isAboutScreenSelected = false;
 
   void switchSelection(int pageNumber) {
     switch (pageNumber) {
@@ -32,25 +32,25 @@ class _MainScreenState extends State<MainScreen> {
         isHomeScreenSelected = true;
         isCategoryScreenSelected = false;
         isChartScreenSelected = false;
-        isSettingsScreenSelected = false;
+        isAboutScreenSelected = false;
         break;
       case 1:
         isHomeScreenSelected = false;
         isCategoryScreenSelected = true;
         isChartScreenSelected = false;
-        isSettingsScreenSelected = false;
+        isAboutScreenSelected = false;
         break;
       case 2:
         isHomeScreenSelected = false;
         isCategoryScreenSelected = false;
         isChartScreenSelected = true;
-        isSettingsScreenSelected = false;
+        isAboutScreenSelected = false;
         break;
       case 3:
         isHomeScreenSelected = false;
         isCategoryScreenSelected = false;
         isChartScreenSelected = false;
-        isSettingsScreenSelected = true;
+        isAboutScreenSelected = true;
         break;
     }
   }
@@ -79,7 +79,7 @@ class _MainScreenState extends State<MainScreen> {
                     HomeScreen(),
                     CategoriesScreen(),
                     ChartsScreen(),
-                    SettingsScreen(),
+                    AboutScreen(),
                   ],
                 ),
               ),
@@ -191,8 +191,8 @@ class _MainScreenState extends State<MainScreen> {
                         isSelected: isChartScreenSelected,
                       ),
                       PageSelectorButton(
-                        icon: FontAwesomeIcons.cogs,
-                        text: 'Settings',
+                        icon: FontAwesomeIcons.info,
+                        text: 'About',
                         onTap: () {
                           setState(() {
                             switchSelection(3);
@@ -201,7 +201,7 @@ class _MainScreenState extends State<MainScreen> {
                                 curve: Curves.easeInExpo);
                           });
                         },
-                        isSelected: isSettingsScreenSelected,
+                        isSelected: isAboutScreenSelected,
                       ),
                     ],
                   ),

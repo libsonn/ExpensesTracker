@@ -25,6 +25,15 @@ class DatabaseHelper extends ChangeNotifier {
     notifyListeners();
   }
 
+  void clearData() {
+    _balance = 0;
+    _amountOfExpenses = 0;
+    _amountOfIncomes = 0;
+    _listOfIncomesExpenses.clear();
+
+    notifyListeners();
+  }
+
   void switchSelectedCategory(int index) {
     CategoryList.switchSelected(index);
 

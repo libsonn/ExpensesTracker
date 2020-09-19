@@ -82,7 +82,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                       'Income'
                                   ? ResponsiveTextOnPinkWidget(
                                       text:
-                                          'Total amount of savings: ${databaseHelper.getAmountOfIncomes()}'
+                                          'Total amount of incomes: ${databaseHelper.getAmountOfIncomes()}'
                                               .toUpperCase()
                                               .toUpperCase(),
                                       fontSize: screenHeight(2),

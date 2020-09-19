@@ -27,6 +27,7 @@ class _NewIncomeExpenseScreenState extends State<NewIncomeExpenseScreen> {
   double _costOfExpense;
   DateTime _dateOfExpense;
 
+  // ignore: unused_field
   Category _categoryOfIncome;
   String _nameOfIncome;
   double _amountOfIncome;
@@ -223,7 +224,9 @@ class _NewIncomeExpenseScreenState extends State<NewIncomeExpenseScreen> {
                                                     listen: false)
                                                 .newExpense(
                                               IncomeExpense(
-                                                  category: _categoryOfExpense,
+                                                  categoryName:
+                                                      _categoryOfExpense
+                                                          .getText(),
                                                   name: _nameOfExpense,
                                                   amount: _costOfExpense,
                                                   dateTime: _dateOfExpense),
@@ -342,10 +345,11 @@ class _NewIncomeExpenseScreenState extends State<NewIncomeExpenseScreen> {
                                             listen: false)
                                         .newIncome(
                                       IncomeExpense(
-                                          name: _nameOfIncome,
-                                          amount: _amountOfIncome,
-                                          dateTime: _dateOfIncome,
-                                          category: _categoryOfIncome),
+                                        name: _nameOfIncome,
+                                        amount: _amountOfIncome,
+                                        dateTime: _dateOfIncome,
+                                        categoryName: 'Income',
+                                      ),
                                     );
                                     Navigator.pop(context);
                                   },

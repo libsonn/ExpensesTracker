@@ -1,3 +1,4 @@
+import 'package:expenses_tracker/classes/categories_class.dart';
 import 'package:expenses_tracker/classes/database_helper_class.dart';
 import 'package:expenses_tracker/constants.dart';
 import 'package:expenses_tracker/widgets/responsive_text_widget.dart';
@@ -21,22 +22,22 @@ class IncomeExpenseTile extends StatelessWidget {
           leading: Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Provider.of<DatabaseHelper>(context)
-                  .getListOfIncomesExpenses()[index]
-                  .getCategory()
+              color: CategoryList.getCategoryFromName(databaseHelper
+                      .getListOfIncomesExpenses()[index]
+                      .getCategoryName())
                   .getColor()
                   .shade100,
             ),
             child: Padding(
               padding: EdgeInsets.all(screenWidth(3)),
               child: Icon(
-                Provider.of<DatabaseHelper>(context)
-                    .getListOfIncomesExpenses()[index]
-                    .getCategory()
+                CategoryList.getCategoryFromName(databaseHelper
+                        .getListOfIncomesExpenses()[index]
+                        .getCategoryName())
                     .getIconData(),
-                color: Provider.of<DatabaseHelper>(context)
-                    .getListOfIncomesExpenses()[index]
-                    .getCategory()
+                color: CategoryList.getCategoryFromName(databaseHelper
+                        .getListOfIncomesExpenses()[index]
+                        .getCategoryName())
                     .getColor(),
                 size: screenWidth(5),
               ),
@@ -51,9 +52,10 @@ class IncomeExpenseTile extends StatelessWidget {
               text:
                   '${dateFormat.format(databaseHelper.getListOfIncomesExpenses()[index].getDateTime())}'),
           trailing: ResponsiveTextOnWhiteWidget(
-              selectedColor: Provider.of<DatabaseHelper>(context)
-                          .getListOfIncomesExpenses()[index]
-                          .getName() ==
+              selectedColor: CategoryList.getCategoryFromName(databaseHelper
+                              .getListOfIncomesExpenses()[index]
+                              .getCategoryName())
+                          .getText() ==
                       'Income'
                   ? Colors.green
                   : Colors.red,

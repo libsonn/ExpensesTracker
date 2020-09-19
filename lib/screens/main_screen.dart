@@ -1,3 +1,4 @@
+import 'package:expenses_tracker/classes/database_helper_class.dart';
 import 'package:expenses_tracker/constants.dart';
 import 'package:expenses_tracker/screens/categories_screen.dart';
 import 'package:expenses_tracker/screens/charts_screen.dart';
@@ -7,6 +8,7 @@ import 'package:expenses_tracker/screens/about_screen.dart';
 import 'package:expenses_tracker/widgets/page_selector_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_screen/responsive_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -53,6 +55,13 @@ class _MainScreenState extends State<MainScreen> {
         isAboutScreenSelected = true;
         break;
     }
+  }
+
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<DatabaseHelper>(context, listen: false).getDataFromDatabase();
+    });
   }
 
   @override
@@ -112,7 +121,7 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                       PageSelectorButton(
                         icon: FontAwesomeIcons.shapes,
-                        text: 'Cetegory',
+                        text: 'Category',
                         onTap: () {
                           setState(() {
                             switchSelection(1);

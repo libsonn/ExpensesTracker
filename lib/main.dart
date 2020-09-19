@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:expenses_tracker/classes/database_helper_class.dart';
+import 'package:expenses_tracker/classes/income_expense_class.dart';
 import 'package:expenses_tracker/screens/categories_screen.dart';
 import 'package:expenses_tracker/screens/charts_screen.dart';
 import 'package:expenses_tracker/screens/home_screen.dart';
@@ -9,11 +12,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'constants.dart';
+import 'package:hive/hive.dart';
 
-void main() {
+void main() async {
   Intl.defaultLocale = 'pl_PL';
   initializeDateFormatting('pl_PL');
 
@@ -23,6 +28,12 @@ void main() {
       yield LicenseEntryWithLineBreaks(['google_fonts'], license);
     },
   );
+
+  WidgetsFlutterBinding.ensureInitialized();
+  Directory directory = await getApplicationDocumentsDirectory();
+
+  Hive.init(directory.path);
+  Hive.registerAdapter(IncomeExpenseAdapter());
 
   runApp(ExpensesTrackerApp());
 }

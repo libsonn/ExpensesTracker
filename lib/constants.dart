@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+const String DBFileName = 'IncomesExpensesDB';
+
 final dateFormat = DateFormat('dd-MM-yyyy');
 
 const kBackgroundColorGradient = BoxDecoration(

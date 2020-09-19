@@ -9,7 +9,6 @@ import '../constants.dart';
 
 class ChartsScreen extends StatefulWidget {
   static String id = '/chartsScreen';
-  //TODO add chart of dates of incomes/expenses
   @override
   _ChartsScreenState createState() => _ChartsScreenState();
 }

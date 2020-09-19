@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
+import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Category {
   MaterialColor _color;
+
   IconData _iconData;
+
   String _text;
+
   bool _isSelected = false;
 
-  Category(
-      {@required MaterialColor color,
-      @required IconData icon,
-      @required String text}) {
+  Category({MaterialColor color, IconData icon, String text}) {
     this._color = color;
     this._iconData = icon;
     this._text = text;
@@ -117,4 +117,15 @@ class CategoryList {
   }
 
   static int getNumberOfCategories() => categoriesList.length;
+
+  static Category getCategoryFromName(String categoryName) {
+    Category categoryOfItem = categoriesList.first;
+
+    for (Category category in categoriesList) {
+      if (category.getText() == categoryName) {
+        categoryOfItem = category;
+      }
+    }
+    return categoryOfItem;
+  }
 }

@@ -49,11 +49,10 @@ class ExpensesTrackerApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Expenses Tracker',
         theme: ThemeData(
-          scaffoldBackgroundColor: klightPurpleColor,
-          brightness: Brightness.dark,
-          primaryColor: klightPurpleColor,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
+            brightness: Brightness.dark,
+            primaryColor: klightPurpleColor,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+            bottomAppBarColor: Colors.white),
         home: MainScreen(),
         initialRoute: MainScreen.id,
         routes: {

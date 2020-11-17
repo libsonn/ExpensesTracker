@@ -50,7 +50,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                               Container(
                                 color: Colors.transparent,
                                 width: screenWidth(90),
-                                height: screenHeight(35),
+                                height: screenHeight(30),
                                 child: ListView.builder(
                                   itemCount:
                                       CategoryList.getNumberOfCategories(),
@@ -99,7 +99,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                               Container(
                                 color: Colors.transparent,
                                 width: screenWidth(90),
-                                height: screenHeight(32),
+                                height: screenHeight(30),
                                 child: ListView.builder(
                                   itemCount: databaseHelper
                                       .getNumberOfSelectedCategory(

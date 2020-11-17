@@ -11,6 +11,12 @@ const kBackgroundColorGradient = BoxDecoration(
       end: Alignment.bottomCenter,
       colors: [klightPurpleColor, kdarkPurpleColor]),
 );
+const kScaffoldColorGradient = BoxDecoration(
+  gradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [klightPurpleColor, kdarkPurpleColor]),
+);
 
 const kTextOnBackgroundColor = Colors.white;
 final kTextOnWhiteColor = Colors.grey.shade900;
@@ -19,3 +25,7 @@ const klightPurpleColor = Color.fromARGB(255, 150, 42, 145);
 const kdarkPurpleColor = Color.fromARGB(200, 110, 42, 145);
 const kInactiveColor = Colors.grey;
 const kActiveColor = klightPurpleColor;
+// LinearGradient(
+//       begin: Alignment.topCenter,
+//       end: Alignment.bottomCenter,
+//       colors: [klightPurpleColor, Colors.white]),
